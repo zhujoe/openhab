@@ -1,0 +1,125 @@
+Group All
+Group gGF 		(All)
+Group gFF 		(All)
+Group gC 		(All)
+Group Outdoor 	(All)
+Group Shutters 	(All)
+Group Weather 	(All)
+Group Status 	(All)
+
+Group GF_Living 	"客厅" 	    <video> 	(gGF)
+Group GF_Kitchen 	"厨房" 		<kitchen> 	(gGF)
+Group GF_Toilet 	"卫生间" 		<bath> 		(gGF)
+Group GF_Corridor 	"走廊" 		<corridor> 	(gGF)
+
+Group FF_Bath 		"浴室" 		<bath> 		(gFF)
+Group FF_Office 	"办公房" 		<office> 	(gFF)
+Group FF_Child 		"儿童房"    	<boy1> 		(gFF)
+Group FF_Bed 		"卧室" 		<bedroom> 	(gFF)
+Group FF_Corridor 	"走廊 " 		<corridor> 	(gFF)
+
+/* active groups */
+Group:Switch:OR(ON, OFF) 		Lights 		"所有灯 [(%d)]" 						    (All)
+Group:Switch:OR(ON, OFF) 		Heating 	"地暖开启状态 [(%d)]" 	    <heating> 		(All)
+Group:Number:AVG 				Temperature	"室内平均温度 [%.1f °C]" 	<temperature>	(Status)
+Group:Contact:OR(OPEN, CLOSED) 	Windows 	"门窗状态 [(%d)]"			<contact>	    (All)
+
+/* Lights */
+Dimmer Light_GF_Living_Table 		"落地灯" 		(GF_Living, Lights)
+Switch Light_GF_Corridor_Ceiling 	"顶灯" 		(GF_Corridor, Lights)
+Switch Light_GF_Kitchen_Ceiling 	"顶灯" 		(GF_Kitchen, Lights)
+Switch Light_GF_Kitchen_Table 		"落地灯" 		(GF_Kitchen, Lights)
+Switch Light_GF_Corridor_Wardrobe 	"衣柜灯"	 	(GF_Corridor, Lights)
+Switch Light_GF_Toilet_Ceiling 		"顶灯" 		(GF_Toilet, Lights)
+Switch Light_GF_Toilet_Mirror 		"梳妆台灯" 		(GF_Toilet, Lights)
+
+Switch Light_FF_Bath_Ceiling 		"顶灯" 		(FF_Bath, Lights)
+Switch Light_FF_Bath_Mirror 		"梳妆台灯" 		(FF_Bath, Lights)
+Switch Light_FF_Corridor_Ceiling 	"走廊灯" 		(FF_Corridor, Lights)
+Switch Light_FF_Office_Ceiling 		"顶灯" 		(FF_Office, Lights)
+Switch Light_FF_Child_Ceiling 		"顶灯" 		(FF_Child, Lights)
+Switch Light_FF_Bed_Ceiling 		"顶灯" 		(FF_Bed, Lights)
+
+Switch Light_C_Corridor_Ceiling 	"顶灯" 		(gC, Lights)
+Switch Light_C_Staircase 			"楼梯灯" 	    (gC, Lights)
+//Switch Light_C_Washing_Ceiling 		"Washing" 		(gC, Lights)
+Switch Light_C_Workshop 			"工作台灯" 		(gC, Lights)
+
+Switch Light_Outdoor_Garage 		"车库灯" 		(Outdoor, Lights)
+Switch Light_Outdoor_Terrace 		"阳台等" 		(Outdoor, Lights)
+Switch Light_Outdoor_Frontdoor 		"前门灯"		(Outdoor, Lights)
+
+/* Heating */
+Switch Heating_GF_Corridor 	"走廊"    	<heating>	(GF_Corridor, Heating)
+Switch Heating_GF_Toilet 	"卫生间"	 	<heating>	(GF_Toilet, Heating)
+Switch Heating_GF_Living 	"客厅" 	    <heating>	(GF_Living, Heating)
+Switch Heating_GF_Kitchen 	"厨房" 		<heating>	(GF_Kitchen, Heating)
+
+Switch Heating_FF_Bath 		"浴室" 		<heating>	(FF_Bath, Heating)
+Switch Heating_FF_Office 	"办公房" 		<heating>	(FF_Office, Heating)
+Switch Heating_FF_Child 	"儿童房" 	    <heating>	(FF_Child, Heating)
+Switch Heating_FF_Bed 		"卧室" 		<heating>	(FF_Bed, Heating)
+
+/* Rollershutters */
+Switch Shutter_all (Shutters)
+
+Rollershutter Shutter_GF_Toilet 		"窗户"		(GF_Toilet, Shutters)
+Rollershutter Shutter_GF_Kitchen 		"窗户"		(GF_Kitchen, Shutters)
+Rollershutter Shutter_GF_Living 		"窗户"	    (GF_Living, Shutters)
+
+Rollershutter Shutter_FF_Bed 			"窗户"		(FF_Bed, Shutters)
+Rollershutter Shutter_FF_Bath 			"窗户"		(FF_Bath, Shutters)
+Rollershutter Shutter_FF_Office_Window	"窗户"	    (FF_Office, Shutters)
+Rollershutter Shutter_FF_Office_Door 	"门"	(FF_Office, Shutters)
+
+/* Indoor Temperatures */
+Number Temperature_GF_Corridor 	"温度 [%.1f °C]"	<temperature>	(Temperature, GF_Corridor)
+Number Temperature_GF_Toilet 	"温度 [%.1f °C]"	<temperature>	(Temperature, GF_Toilet)
+Number Temperature_GF_Living 	"温度 [%.1f °C]"	<temperature>	(Temperature, GF_Living)
+Number Temperature_GF_Kitchen 	"温度 [%.1f °C]"	<temperature>	(Temperature, GF_Kitchen)
+Number Temperature_FF_Bath 		"温度 [%.1f °C]"	<temperature>	(Temperature, FF_Bath)
+Number Temperature_FF_Office 	"温度 [%.1f °C]"	<temperature>	(Temperature, FF_Office)
+Number Temperature_FF_Child 	"温度 [%.1f °C]"	<temperature>	(Temperature, FF_Child)
+Number Temperature_FF_Bed 		"温度 [%.1f °C]"	<temperature>	(Temperature, FF_Bed)
+
+/* Windows */
+Contact Window_GF_Frontdoor 	"Frontdoor [MAP(en.map):%s]"		(GF_Corridor, Windows)
+Contact Window_GF_Kitchen 		"Kitchen [MAP(en.map):%s]"			(GF_Kitchen, Windows)
+Contact Window_GF_Living 		"Terrace door [MAP(en.map):%s]"		(GF_Living, Windows)
+Contact Window_GF_Toilet 		"Toilet [MAP(en.map):%s]"			(GF_Toilet, Windows)
+
+Contact Window_FF_Bath 			"Bath [MAP(en.map):%s]"				(FF_Bath, Windows)
+Contact Window_FF_Bed 			"Bedroom [MAP(en.map):%s]"			(FF_Bed, Windows)
+Contact Window_FF_Office_Window "Office Window [MAP(en.map):%s]"	(FF_Office, Windows)
+Contact Window_FF_Office_Door 	"Balcony Door [MAP(en.map):%s]"		(FF_Office, Windows)
+
+Contact Garage_Door 			"Garage Door [MAP(en.map):%s]"		(Outdoor, Windows)
+
+Group Weather_Chart													(Weather)
+Number Weather_Temperature 		"外界温度[%.1f °C]"	<temperature> (Weather_Chart) { http="<[http://weather.yahooapis.com/forecastrss?w=638242&u=c:60000:XSLT(yahoo_weather_temperature.xsl)]" }
+Number Weather_Humidity 		"外界湿度[%.1f %%]"	<temperature> (Weather) { http="<[http://weather.yahooapis.com/forecastrss?w=638242&u=c:60000:XSLT(yahoo_weather_humidity.xsl)]" }
+Number Weather_Humidex			"温度指数[SCALE(humidex.scale):%s]" 			(Weather)
+Number Weather_Temp_Max 		"最高温度[%.1f °C]"	<temperature> (Weather_Chart)
+Number Weather_Temp_Min 		"最低温度[%.1f °C]"	<temperature> (Weather_Chart)
+Number Weather_Chart_Period		"Chart Period"
+DateTime Weather_LastUpdate		"Last Update [%1$ta %1$tR]"	<clock>
+
+/* NTP binding demo item */
+DateTime		Date			"日期 [%1$tA, %1$td.%1$tm.%1$tY]"	<calendar>	{ ntp="Europe/Berlin:de_DE" }
+
+/* Demo items */
+Switch DemoSwitch				"Switch"
+Dimmer DimmedLight				"Dimmer [%d %%]"		<slider>
+Color  RGBLight					"RGB Light"				<slider>
+Rollershutter DemoShutter	 	"Roller Shutter"
+Dimmer DemoBlinds			 	"Blinds [%d %%]"		<rollershutter>
+Number Scene_General			"Scene"					<sofa>
+Number Radio_Station			"Radio"					<network>
+Dimmer Volume 					"Volume [%.1f %%]"
+Number Temperature_Setpoint		"Temperature [%.1f °C]" <temperature>
+
+String UnknownDevices    "Unknown Devices in Range: [%s]" { bluetooth="?" }
+Number NoOfPairedDevices "Paired Devices in Range: [%d]"  { bluetooth="!" }
+
+/* Locations */
+Location DemoLocation			"Brandenburg Gate Berlin"
